@@ -2,6 +2,7 @@
 {
     using FileTypeChecker.Exceptions;
     using NUnit.Framework;
+    using System.Reflection.PortableExecutable;
 
     [TestFixture]
     public class MagicSequenceTests
@@ -44,6 +45,16 @@
             var areEquals = magicBytes.Equals(second);
 
             Assert.IsTrue(areEquals == expextedResult);
+        }
+
+        [Test]
+        [TestCase(new byte[] { 0x00, 0x00, 0x00, 0x20, 0x66, 0x74, 0x79, 0x70 }, new byte[] { 0x00, 0x00, 0x00, 0x20, 0x66, 0x74, 0x79, 0x70 }, 4, 4)]
+        public void CountMatchingBytesShouldReturnNumbersOfMachtingBytesWhenThereIsSkipInTheFront(byte[] magicBytes, byte[] compareBytes, int matching, int bytesToSkip)
+        {
+            var sequence = new MagicSequence(magicBytes, bytesToSkip);
+            var actual = sequence.CountMatchingBytes(compareBytes);
+
+            Assert.AreEqual(matching, actual);
         }
 
         [Test]

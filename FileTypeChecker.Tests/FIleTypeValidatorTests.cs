@@ -53,6 +53,7 @@
         [TestCase("testwin10.zip")]
         [TestCase("test.webp")]
         [TestCase("sample.heic")]
+        [TestCase("test.mp4")]
         public void IsTypeRecognizable_ShouldReturnTrueIfFileIsRecognized(string filePath)
         {
             using var fileStream = File.OpenRead(Path.Combine(FilesPath, filePath));
@@ -85,6 +86,7 @@
         [TestCase("testwin10.zip", ZipFile.TypeExtension)]
         [TestCase("test.webp", Webp.TypeExtension)]
         [TestCase("sample.heic", HighEfficiencyImageFile.TypeExtension)]
+        [TestCase("test.mp4", Mp4.TypeExtension)]
         public void GetFileType_ShouldReturnFileExtension(string filePath, string expectedFileExtension)
         {
             using var fileStream = File.OpenRead(Path.Combine(FilesPath, filePath));
@@ -115,6 +117,7 @@
         [TestCase("testwin10.zip", ZipFile.TypeName)]
         [TestCase("test.webp", Webp.TypeName)]
         [TestCase("sample.heic", HighEfficiencyImageFile.TypeName)]
+        [TestCase("test.mp4", Mp4.TypeName)]
         public void GetFileType_ShouldReturnFileName(string filePath, string expectedFileTypeName)
         {
             using var fileStream = File.OpenRead(Path.Combine(FilesPath, filePath));

@@ -17,7 +17,8 @@
         { }
 
         public MagicSequence(byte[] data, int offset) : this(data, offset, 0)
-        { }
+        { 
+        }
 
         public MagicSequence(byte[] data, int bytesToSkip, int indexToStart)
         {

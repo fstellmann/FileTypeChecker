@@ -109,6 +109,26 @@
         }
 
         [Test]
+        public void Video_ShouldReturnFalseIfTypesDidNotMatch()
+        {
+            using var fileStream = File.OpenRead("./files/test.doc");
+            var expected = false;
+            var actual = fileStream.IsDocument();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Video_ShouldReturnTrueIfTheTypesMatch()
+        {
+            using var fileStream = File.OpenRead("./files/test.mp4");
+            var expected = true;
+            var actual = fileStream.IsDocument();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
         public void Is_ShouldReturnFalseIfRandomInput()
         {
             using var memorystream = new MemoryStream(new byte[] {4, 6, 210, 16, 48, 31, 48, 45});

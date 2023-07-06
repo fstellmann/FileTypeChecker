@@ -117,5 +117,9 @@
             || content.Is<MicrosoftOffice365Document>()
             || content.Is<MicrosoftOfficeDocument>()
             || content.Is<PortableDocumentFormat>();
+        public static bool IsVideo(this byte[] content)
+         => content.Is<Mp4>()
+         || content.Is<AudioVideoInterleaveVideoFormat>()
+         || content.Is<M4v>();
     }
 }

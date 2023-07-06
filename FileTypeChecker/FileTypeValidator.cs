@@ -136,6 +136,14 @@
         public static bool IsArchive(Stream fileContent)
             => fileContent.IsArchive();
 
+        /// <summary>
+        /// Validates that the current file is video.
+        /// </summary>
+        /// <param name="fileContent"File to check as stream.></param>
+        /// <returns>Returns true if the provided file is archive otherwise returns false.</returns>
+        public static bool IsVideo(Stream fileContent)
+            => fileContent.IsVideo();
+
         internal static IFileType FindBestMatch(Stream fileContent)
         {
             var matches = FileTypes.Where(fileType => fileType.DoesMatchWith(fileContent));

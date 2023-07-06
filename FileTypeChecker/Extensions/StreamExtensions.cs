@@ -58,7 +58,7 @@
             || fileContent.Is<XzFile>();
 
         /// <summary>
-        /// Validates taht the current file is executable or executable and linkable.
+        /// Validates that the current file is executable or executable and linkable.
         /// </summary>
         /// <param name="fileContent">Returns true if the provided file is an executable otherwise returns false.</param>
         /// <returns></returns>
@@ -76,5 +76,16 @@
             || fileContent.Is<MicrosoftOffice365Document>()
             || fileContent.Is<MicrosoftOfficeDocument>()
             || fileContent.Is<PortableDocumentFormat>();
+
+
+        /// <summary>
+        /// Validates that the current file is video.
+        /// </summary>
+        /// <param name="fileContent">Returns true if the provided file is an executable otherwise returns false.</param>
+        /// <returns></returns>
+        public static bool IsVideo(this Stream fileContent)
+           => fileContent.Is<Mp4>()
+           || fileContent.Is<AudioVideoInterleaveVideoFormat>()
+           || fileContent.Is<M4v>();
     }
 }

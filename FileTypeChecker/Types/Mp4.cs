@@ -1,7 +1,7 @@
-using FileTypeChecker.Abstracts;
-
 namespace FileTypeChecker.Types
 {
+    using FileTypeChecker;
+    using FileTypeChecker.Abstracts;
     public class Mp4 : FileType, IFileType
     {
         public const string TypeName = "MP4 file";
